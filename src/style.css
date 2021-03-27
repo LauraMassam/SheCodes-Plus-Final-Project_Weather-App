@@ -1,1 +1,74 @@
+.container{
+    min-width: 550px;
+    max-width: 650px;
 
+}
+.weather-app-frame{
+    margin: 30px 5px 0px 5px;
+    border: solid;
+    border-color:#aaa5a5;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 10px 5px;
+}
+h1, .current-info, .forcast-times, .current-day-time{
+    color: #006EC5;
+}
+h6{
+    color: #6FBBF8;
+}
+h3{
+    font-size: 20px;
+}
+
+.current-city{
+    display: block;
+    font-size: 60px;
+    padding-left: 30px;
+}
+
+.current-day-time{
+text-align: center;
+padding-top: 19px;
+
+}
+.current-day, .current-time{
+    margin: 0;
+}
+.sunrise-sunset{
+    display: block;
+    text-align: right;
+    padding-top: 25px;
+    padding-right: 30px;
+}
+.weather-icon{
+    display: block;
+    padding-left: 100px;
+}
+.current-info{
+    text-align: center;
+    display: block;
+    padding-right: 100px;
+}
+.current-temp{
+    font-size: 70px;
+    font-weight: 500;
+}
+.celsius-fahrenheit{
+    font-size: 20px;
+    position: relative;
+    top: -30px;
+    left: -15px;
+}
+.forcast-temp{
+    display: block;
+    font-size: 10px;
+    text-align: center;
+}
+.forcast-times{
+    display: block;
+    text-align: center;
+}
+.forcast-temp, .high-low-temp{
+    color: #919a9c;
+}

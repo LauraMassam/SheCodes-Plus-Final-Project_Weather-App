@@ -9,120 +9,123 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="container">
-    
+<div class="container">
+    <div class ="weather-app-frame">
     <div class="row">
         <h6>
-            here's the weather in...
+            Here's the weather in...
         </h6>
     </div> <!---end of div row-->
     <div class="row">
         <div class="col">
-        <h1>
+        <h1 class="current-city">
             London
         </h1>
         </div> <!---end of div col-->
-
         <div class="col">
-        <h3>
+            <div class="current-day-time">
+        <h3 class="current-day">
             Saturday
         </h3>
-        <h3>
+        <h3 class="current-time">
             06:00am
         </h3>
+    </div>
         </div> <!---end of div col-->
         <div class="col">
+        <div class="sunrise-sunset">
         <h6>
             Sunrise : 05:54am
-        </h6>
-        <h6>
+        </br>
             Sunset : 19:02pm
         </h6>
+    </div>
         </div>
     </div><!---end of div row-->
 
     <div class="row">
-        <div class="col">
-            Weather icon
+        <div class="col-6">
+            <div class="weather-icon">
+                current weather image
+            </div>
         </div><!---end of div col-->
     
-    <div class="col">
-            <div>
-                10 °C
+        <div class="col-6">
+            <span class="current-info">
+            <div class="current-temp">
+                10 <span class = "celsius-fahrenheit">° C | F</span>
             </div>
 
-            <div>
-                2 °C | 11 °C
+            <div class="high-low-temp">
+                2 °C | <strong> 11°C </strong>
             </div>
-            <div>
-                Overcast
+            <div class="current-weather">
+               <strong> Overcast</strong>
             </div>
-    </div><!---end of div col-->
+            </span>
+        </div><!---end of div col-->
     </div><!---end of div row-->
 
     <div class="row">
         <h6>
-            here's the weather for the next few hours...
+            Here's the weather for the next few hours...
         </h6>
     </div><!---end of div row-->
 
     <div class="row">
         <div class="col-2">
-            9am
+            <span class = "forcast-times">9am</span>
         </div>
         <div class="col-2">
-            12pm    
+            <span class = "forcast-times">12pm</span>
         </div>
         <div class="col-2">
-            3pm
+            <span class = "forcast-times">3pm</span>
         </div>
         <div class="col-2">
-            6pm
+            <span class = "forcast-times">6pm</span>
         </div>
         <div class="col-2">
-            9pm
+            <span class = "forcast-times">9pm</span>
         </div>
         <div class="col-2">
-            12am
+            <span class = "forcast-times">12am</span>
         </div>
     </div><!---end of div row-->
-
-
+    
     <div class="row">
-
         <div class="col-2">
             weather icon
         </br>
-        <span class="forcast-temp"> low ° | high °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> °C </span>
         </div>
         <div class="col-2">
             weather icon
         </br>
-        <span class="forcast-temp"> low ° | high °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> °C </span>
         </div>
         <div class="col-2">
             weather icon
         </br>
-        <span class="forcast-temp"> low ° | high °C </span>
+        <span class="forcast-temp"> low |<strong> high </strong> °C </span>
         </div>
         <div class="col-2">
             weather icon
         </br>
-        <span class="forcast-temp"> low ° | high °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> °C </span>
         </div>
         <div class="col-2">
             weather icon
         </br>
-        <span class="forcast-temp"> low ° | high °C </span>
+        <span class="forcast-temp"> low |<strong> high </strong> °C </span>
         </div>
         <div class="col-2">
             weather icon
         </br>
-        <span class="forcast-temp"> low ° | high °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> °C</span>
         </div>
-
     </div><!---end of div row-->
-
+</div> <!--- end of weather-app-frame--->
 </div> <!--- end of container--->
     <script src = "src/app.js"></script>
 </body>
