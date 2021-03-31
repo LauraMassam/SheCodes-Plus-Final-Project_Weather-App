@@ -10,11 +10,47 @@
     border-width: 1px;
     padding: 10px 5px;
 }
+
+.search-box{
+    width: 72%;
+}
+.search-bar{
+    margin: 0px -28px 10px 10px;
+ }
+
+ .search-btn{
+     margin: 0px -25px 0px -15px;
+ }
+.location-tag{
+    margin: 0px 0px 0px 0px;
+ 
+}
+
+.btn{
+    color:#ffffff;
+    background-color: #006EC5;
+    border-radius: 5px;
+    margin: 0px 2px 0px 2px;
+
+    
+}
+
+.btn:hover{
+    color: #ffffff;
+    box-shadow: 1px 1px 10px;
+    transition: ease-in-out 200ms;
+    box-shadow: 0px 2px 6px 0px #4c658b;
+
+}
+
 h1, .current-info, .forcast-times, .current-day-time{
     color: #006EC5;
 }
 h6{
     color: #6FBBF8;
+}
+.here-is-the-weather{
+    margin: 0 0 0 14px;
 }
 h3{
     font-size: 20px;
@@ -67,6 +103,10 @@ padding-top: 19px;
 .forcast-times{
     display: block;
     text-align: center;
+}
+.forecast-icon{
+    text-align: center;
+    font-size: 15px;
 }
 .forcast-temp, .high-low-temp{
     color: #919a9c;
