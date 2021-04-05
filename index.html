@@ -38,37 +38,46 @@
     </h6>
 </div> <!---end of div row-->
     <div class="row">
-        <div class="col">
+        <div class="col-8">
         <h1 class="current-city" id ="current-city">
             London
         </h1>
         </div> <!---end of div col-->
-        <div class="col">
+        <div class="col-4">
             <div class="current-day-time">
-        <h3 class="current-day" id="current-day">
-            Saturday
-        </h3>
-        <h3 class="current-time" id="current-time">
-            06:00am
+        <h3 class="current-day">
+            <span id="day">Saturday</span>
+        </br>
+            <span id="time">06:00am</span>
         </h3>
     </div>
         </div> <!---end of div col-->
-        <div class="col">
-        <div class="sunrise-sunset">
-        <h6>
-            Sunrise : <span id= "sunrise">05:54am</span>
-        </br>
-            Sunset : <span id="sunset">19:02pm</span>
-        </h6>
-    </div>
-        </div>
     </div><!---end of div row-->
 
     <div class="row">
         <div class="col-6">
-            <div class="weather-icon" id="weather-icon">
-                current weather image
+            <div class="row">
+            <div class="weather-icon">
+                <img src="" alt=""
+                id="icon">
             </div>
+            </div> <!--end of row-->
+
+            <div class="row sunrise-sunset">
+                <div class="col">
+                <h6>
+                    Sunrise: <span id= "sunrise">06.05</span>
+                </h6>
+                </div>
+                <div class="col">
+                <h6>                    
+                    Sunset: <span id= "sunset"> 22.05</span>
+                </h6>
+                </div>
+            </div>
+
+
+
         </div><!---end of div col-->
     
         <div class="col-6">
@@ -83,10 +92,10 @@
             <div class="high-low-temp">
                 <span id="low-temp">
                     2
-                </span> °C | <strong> 
+                </span> ° | <strong> 
                 <span id="high-temp">
                     11 
-                </span> °C </strong>
+                </span> ° </strong>
             </div>
             <div class="current-weather">
                <strong> 
@@ -129,32 +138,32 @@
         <div class="col-2 forecast-icon">
             weather icon
         </br>
-        <span class="forcast-temp"> low | <strong> high </strong> °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> ° </span>
         </div>
         <div class="col-2 forecast-icon">
             weather icon
         </br>
-        <span class="forcast-temp"> low | <strong> high </strong> °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> ° </span>
         </div>
         <div class="col-2 forecast-icon">
             weather icon
         </br>
-        <span class="forcast-temp"> low |<strong> high </strong> °C </span>
+        <span class="forcast-temp"> low |<strong> high </strong> ° </span>
         </div>
         <div class="col-2 forecast-icon">
             weather icon
         </br>
-        <span class="forcast-temp"> low | <strong> high </strong> °C </span>
+        <span class="forcast-temp"> low | <strong> high </strong> ° </span>
         </div>
         <div class="col-2 forecast-icon">
             weather icon
         </br>
-        <span class="forcast-temp"> low |<strong> high </strong> °C </span>
+        <span class="forcast-temp"> low |<strong> high </strong> ° </span>
         </div>
         <div class="col-2 forecast-icon">
             weather icon
         </br>
-        <span class="forcast-temp"> low | <strong> high </strong> °C</span>
+        <span class="forcast-temp"> low | <strong> high </strong> °</span>
         </div>
     </div><!---end of div row-->
 </div> <!--- end of weather-app-frame--->

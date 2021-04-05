@@ -45,8 +45,9 @@
 
 h1, .current-info, .forcast-times, .current-day-time{
     color: #006EC5;
+    text-align: center;
 }
-h6{
+h6.here-is-the-weather{
     color: #6FBBF8;
 }
 .here-is-the-weather{
@@ -60,21 +61,31 @@ h3{
     display: block;
     font-size: 60px;
     padding-left: 30px;
+    margin-bottom: 0;
 }
-
+.country{
+    text-align: right;
+    color: #006EC5;
+    line-height: 0.5;
+}
 .current-day-time{
 text-align: center;
-padding-top: 19px;
+padding-top: 12px;
 
 }
 .current-day, .current-time{
     margin: 0;
+    font-size: 25px;
+
+}
+img{
+    padding-left: 42px;
 }
 .sunrise-sunset{
-    display: block;
     text-align: right;
-    padding-top: 25px;
-    padding-right: 28px;
+    padding-top: 32px;
+    padding-left: 60px;
+    color: #006EC5
 }
 .weather-icon{
     display: block;
@@ -116,3 +127,4 @@ padding-top: 19px;
 .forcast-temp, .high-low-temp{
     color: #919a9c;
 }
+
