@@ -57,13 +57,21 @@ function showTemperature(response){
 
     let time=document.querySelector("#time");
     time.innerHTML = formatTime(response.data.dt*1000);
-
-
 console.log(response.data);
 }
 
+function search(city){
 let apiKey = "9aaa9a2a183bbe9e6cb58bc031908f93";
-let city = "london";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},CountryCode}&appid=${apiKey}&units=metric`;
-
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement=document.querySelector("#city-input");
+    search(cityInputElement.value);
+}    
+search("London");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

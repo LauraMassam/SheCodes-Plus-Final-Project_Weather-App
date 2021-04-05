@@ -14,13 +14,17 @@
 <div class="container">
     <div class ="weather-app-frame">
 
-<form>
+<form id="search-form">
 <div class="row search-bar">
    <div class="col-8 search-box">
-    <input type="text" class="form-control" placeholder="Enter a City here">
+    <input type="search" 
+           class="form-control" 
+           placeholder="Enter a City here" 
+           id="city-input"
+           autocomplete="off">
    </div>
    <div class="col-2 search-btn">
-    <button type="submit" class="btn">Search</button>
+    <button type="submit" class="btn" >Search</button>
 </div>
 
     <div class="col-2 location-tag">
@@ -40,15 +44,19 @@
     <div class="row">
         <div class="col-8">
         <h1 class="current-city" id ="current-city">
-            London
+            
         </h1>
         </div> <!---end of div col-->
         <div class="col-4">
             <div class="current-day-time">
         <h3 class="current-day">
-            <span id="day">Saturday</span>
+            <span id="day">
+
+            </span>
         </br>
-            <span id="time">06:00am</span>
+            <span id="time">
+
+            </span>
         </h3>
     </div>
         </div> <!---end of div col-->
@@ -66,12 +74,16 @@
             <div class="row sunrise-sunset">
                 <div class="col">
                 <h6>
-                    Sunrise: <span id= "sunrise">06.05</span>
+                    Sunrise: <span id= "sunrise">
+                        
+                    </span>
                 </h6>
                 </div>
                 <div class="col">
                 <h6>                    
-                    Sunset: <span id= "sunset"> 22.05</span>
+                    Sunset: <span id= "sunset"> 
+                        
+                    </span>
                 </h6>
                 </div>
             </div>
@@ -84,23 +96,24 @@
             <span class="current-info">
             <div class="current-temp">
                 <span  id = "current-temp">
-                    10
+                    
                 </span>
                    <span class = "celsius-fahrenheit">° C | F</span>
             </div>
 
             <div class="high-low-temp">
                 <span id="low-temp">
-                    2
+                    
                 </span> ° | <strong> 
                 <span id="high-temp">
-                    11 
+                     
                 </span> ° </strong>
             </div>
             <div class="current-weather">
                <strong> 
                    <span id="weather-description">
-                       <strong> Overcast </strong>
+                        <strong> 
+                        </strong>
                     </span>
             </div>
             </span>
