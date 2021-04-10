@@ -64,6 +64,11 @@ function showTemperature(response){
     time.innerHTML = formatTime(response.data.dt*1000);
 
     celsiusTemperature = response.data.main.temp;
+    feelsLikeTemp = response.data.main.feels_like;
+    lowTemp = response.data.main.temp_min;
+    highTemp = response.data.main.temp_max;
+
+
     console.log(response.data)
 }
 
@@ -82,22 +87,31 @@ function handleSubmit(event){
 function displayFahrenheitTemperature(event){
 event.preventDefault();
 let temperatureElement = document.querySelector("#current-temp");
+let feelsLikeTemp = document.querySelector("#feels-like");
 celsiusLink.classList.remove("active");
 fahrenheitLink.classList.add("active");
 let fahrenheitTemperature = (celsiusTemperature * 9 / 5 + 32);
 temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+feelsLikeTemp.innerHTML = Math.round((feelsLikeTemp * 9) / 5 + 32);
 }
 
 function displayCelsiusTemperature(event){
     event.preventDefault();
     let temperatureElement = document.querySelector("#current-temp")
+    let feelsLikeTemp = document.querySelector("#feels-like");
+
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    feelsLikeTemp.innerHTML = Math.round(feelsLikeTemp);
+
     }
     
 
 let celsiusTemperature = null;
+let feelsLikeTemp = null;
+let lowTemp = null;
+let highTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
