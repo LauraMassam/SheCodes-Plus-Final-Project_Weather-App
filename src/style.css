@@ -63,11 +63,6 @@ h3{
     padding-left: 30px;
     margin-bottom: 0;
 }
-.country{
-    text-align: right;
-    color: #006EC5;
-    line-height: 0.5;
-}
 .current-day-time{
 text-align: center;
 padding-top: 12px;
@@ -78,18 +73,27 @@ padding-top: 12px;
     font-size: 25px;
 
 }
-img{
-    padding-left: 42px;
-}
-.sunrise-sunset{
-    text-align: right;
-    padding-top: 32px;
-    padding-left: 60px;
-    color: #006EC5
+.weather{
+    padding-left: 50px;
+    padding-right: 0;
 }
 .weather-icon{
     display: block;
-    padding-left: 100px;
+    text-align: center;
+}
+
+.sunrise-sunset{
+    text-align: center;
+    color: #006EC5;
+    padding: 8px 0px 0px 0px ;
+}
+.sunrise{
+    padding-right: 0;
+    padding-left: 20px;
+}
+.sunset{
+    padding-left: 0;
+    padding-right: 20px;
 }
 .current-info{
     text-align: center;
@@ -102,6 +106,9 @@ img{
 
 .current-weather{
     text-transform: capitalize;
+    color: #006EC5;
+    text-align: center;
+    font-size: 20px;
     }
     
 .celsius-fahrenheit{

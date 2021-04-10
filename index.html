@@ -62,35 +62,24 @@
         </div> <!---end of div col-->
     </div><!---end of div row-->
 
-    <div class="row">
-        <div class="col-6">
+    <div class="row"><!---row for current weather & info -->
+        <div class="col-6 weather">
             <div class="row">
             <div class="weather-icon">
                 <img src="" alt=""
+                style="width: 50%;"
                 id="icon">
             </div>
             </div> <!--end of row-->
 
-            <div class="row sunrise-sunset">
-                <div class="col">
-                <h6>
-                    Sunrise: <span id= "sunrise">
-                        
-                    </span>
-                </h6>
-                </div>
-                <div class="col">
-                <h6>                    
-                    Sunset: <span id= "sunset"> 
-                        
-                    </span>
-                </h6>
-                </div>
+            <div class="row">
+            <div class="current-weather">
+            <strong> 
+                <span id="weather-description"></span>
+             </strong>
             </div>
-
-
-
-        </div><!---end of div col-->
+            </div><!--end of row-->
+    </div><!---end of div col-->
     
         <div class="col-6">
             <span class="current-info">
@@ -109,16 +98,24 @@
                      
                 </span> ° </strong>
             </div>
-            <div class="current-weather">
-               <strong> 
-                   <span id="weather-description">
-                        <strong> 
-                        </strong>
-                    </span>
+            
+            <div class="row sunrise-sunset">
+                <div class="col sunrise">
+                <h6>
+                Sunrise: <span id= "sunrise"></span>
+                </h6>
+                </div> 
+
+                <div class="col sunset">
+                <h6>    
+                Sunset: <span id= "sunset"> </span>
+                </h6>
+                </div>
+            
             </div>
-            </span>
+
         </div><!---end of div col-->
-    </div><!---end of div row-->
+    </div><!---end of div row for current weather & info-->
 
     <div class="row">
         <h6 class = "here-is-the-weather">
