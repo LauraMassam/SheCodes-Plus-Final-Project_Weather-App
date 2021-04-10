@@ -66,6 +66,7 @@ h3{
 }
 .weather-icon{
     display: block;
+    margin-bottom: -15px;
     text-align: center;
 }
 a{
@@ -79,11 +80,18 @@ a{
 .current-temp .active:hover{
     text-decoration: none;
 }
+.humidity-wind{
+    color: #6e6868;
+    text-align: center;
+    font-weight: 100;
+}
 .sunrise-sunset{
     color: #6e6868;
     padding: 2px 0px 0px 0px ;
     text-align: center;
-    font-weight: 100;}
+    font-weight: 100;
+    margin-bottom: -10px;
+}
 .sunrise{
     padding-right: 0;
     padding-left: 40px;
@@ -103,7 +111,8 @@ a{
 }
 .feels-like{
     font-size: 15px;
-    padding-top: 2px;
+    padding-top: 8px;
+
 }
 .current-weather{
     color: #006EC5;

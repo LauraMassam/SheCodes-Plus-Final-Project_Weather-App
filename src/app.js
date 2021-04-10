@@ -40,6 +40,8 @@ function showTemperature(response){
     let feelsLikeElement = document.querySelector("#feels-like");
     let sunriseElement = document.querySelector("#sunrise");
     let sunsetElement = document.querySelector("#sunset");
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind");
     let weatherIconElement = document.querySelector("#icon");
     
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -48,10 +50,11 @@ function showTemperature(response){
     dateElement.innerHTML = formatDate(response.data.dt*1000);
     cityElement.innerHTML = (response.data.name);
     weatherDescriptionElement.innerHTML = (response.data.weather[0].description);
-    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like)
+    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
     sunriseElement.innerHTML = formatTime(response.data.sys.sunrise*1000);
     sunsetElement.innerHTML = formatTime(response.data.sys.sunset*1000);
-
+    humidityElement.innerHTML = (response.data.main.humidity);
+    windElement.innerHTML = Math.round(response.data.wind.speed);
     weatherIconElement.setAttribute (
         "src",
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
