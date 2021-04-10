@@ -32,33 +32,36 @@ function formatTime(timestamp){
 
 function showTemperature(response){
     let temperatureElement = document.querySelector("#current-temp");
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
     let temperatureLowElement = document.querySelector("#low-temp");
-    temperatureLowElement.innerHTML = Math.round(response.data.main.temp_min);
     let temperatureHighElement = document.querySelector("#high-temp");
-    temperatureHighElement.innerHTML = Math.round(response.data.main.temp_max);
+    let dateElement = document.querySelector("#day");
     let cityElement = document.querySelector("#current-city");
-    cityElement.innerHTML = (response.data.name);
     let weatherDescriptionElement = document.querySelector("#weather-description");
-    weatherDescriptionElement.innerHTML = (response.data.weather[0].description);
-    let weatherIconElement = document.querySelector("#icon");
-    weatherIconElement.setAttribute (
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    weatherIconElement.setAttribute("alt", response.data.weather[0].main);
-
+    let feelsLikeElement = document.querySelector("#feels-like");
     let sunriseElement = document.querySelector("#sunrise");
-    sunriseElement.innerHTML = formatTime(response.data.sys.sunrise*1000);
     let sunsetElement = document.querySelector("#sunset");
+    let weatherIconElement = document.querySelector("#icon");
+    
+    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    temperatureLowElement.innerHTML = Math.round(response.data.main.temp_min);
+    temperatureHighElement.innerHTML = Math.round(response.data.main.temp_max);
+    dateElement.innerHTML = formatDate(response.data.dt*1000);
+    cityElement.innerHTML = (response.data.name);
+    weatherDescriptionElement.innerHTML = (response.data.weather[0].description);
+    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like)
+    sunriseElement.innerHTML = formatTime(response.data.sys.sunrise*1000);
     sunsetElement.innerHTML = formatTime(response.data.sys.sunset*1000);
 
-    let dateElement = document.querySelector("#day");
-    dateElement.innerHTML = formatDate(response.data.dt*1000);
-
+    weatherIconElement.setAttribute (
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+        weatherIconElement.setAttribute("alt", response.data.weather[0].main);
+        
     let time=document.querySelector("#time");
     time.innerHTML = formatTime(response.data.dt*1000);
 
     celsiusTemperature = response.data.main.temp;
+    console.log(response.data)
 }
 
 function search(city){
