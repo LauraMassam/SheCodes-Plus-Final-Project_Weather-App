@@ -1,13 +1,12 @@
 .container{
     max-width: 650px;
-
 }
 .weather-app-frame{
-    margin: 30px 5px 0px 5px;
     border: solid;
     border-color:#aaa5a5;
     border-radius: 5px;
     border-width: 1px;
+    margin: 30px 5px 0px 5px;
     padding: 10px 5px;
 }
 
@@ -23,24 +22,20 @@
  }
 .location-tag{
     margin: 0px 0px 0px 0px;
- 
 }
 
 .btn{
-    color:#ffffff;
     background-color: #006EC5;
     border-radius: 5px;
+    color:#ffffff;
     margin: 0px 2px 0px 2px;
-
-    
 }
 
 .btn:hover{
-    color: #ffffff;
     box-shadow: 1px 1px 10px;
-    transition: ease-in-out 200ms;
     box-shadow: 0px 2px 6px 0px #4c658b;
-
+    color: #ffffff;
+    transition: ease-in-out 200ms;
 }
 
 h1, .current-info, .forcast-times, .current-day-time{
@@ -60,44 +55,54 @@ h3{
 .current-city{
     display: block;
     font-size: 60px;
-    padding-left: 30px;
     margin-bottom: 0;
+    padding-left: 30px;
 }
 .current-day-time{
-text-align: center;
-padding-top: 12px;
+    padding-top: 12px;
+    text-align: center;
 
 }
 .current-day, .current-time{
-    margin: 0;
     font-size: 25px;
+    margin: 0;
 
 }
 .weather{
-    padding-left: 50px;
     padding-right: 0;
+    padding-left: 50px;
 }
 .weather-icon{
     display: block;
     text-align: center;
 }
+a{
+    text-decoration: none;
+}.current-temp .active{
+    color: #6e6868; 
+    cursor: default;
+    text-decoration: none;
+}
+.current-temp .active:hover{
+    text-decoration: none;
+}
 
 .sunrise-sunset{
-    text-align: center;
     color: #6e6868;
     padding: 8px 0px 0px 0px ;
+    text-align: center;
 }
 .sunrise{
     padding-right: 0;
     padding-left: 40px;
 }
 .sunset{
-    padding-left: 0;
     padding-right: 40px;
+    padding-left: 0;
 }
 .current-info{
-    text-align: center;
     padding-right: 100px;
+    text-align: center;
 }
 .current-temp{
     font-size: 70px;
@@ -105,18 +110,18 @@ padding-top: 12px;
 }
 
 .current-weather{
-    text-transform: capitalize;
     color: #006EC5;
-    text-align: center;
     font-size: 20px;
+    text-align: center;
+    text-transform: capitalize;
     }
     
 .celsius-fahrenheit{
     font-size: 20px;
     font-weight: 100;
+    left: -15px;
     position: relative;
     top: -30px;
-    left: -15px;
 }
 .forcast-temp{
     display: block;
@@ -128,8 +133,8 @@ padding-top: 12px;
     text-align: center;
 }
 .forecast-icon{
-    text-align: center;
     font-size: 15px;
+    text-align: center;
 }
 .forcast-temp, .high-low-temp{
     color: #919a9c;
