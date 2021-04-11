@@ -30,7 +30,7 @@ function formatTime(timestamp){
     return `${hours}:${minutes}`;
 }
 
-function showTemperature(response){
+function showWeather(response){
     let temperatureElement = document.querySelector("#current-temp");
     let temperatureLowElement = document.querySelector("#low-temp");
     let temperatureHighElement = document.querySelector("#high-temp");
@@ -73,20 +73,31 @@ function showTemperature(response){
     highTemp = response.data.main.temp_max;
 }
 
-function search(city){
+function searchCity(city){
 let apiKey = "9aaa9a2a183bbe9e6cb58bc031908f93";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showTemperature);
+axios.get(apiUrl).then(showWeather);
 }
 
 function handleSubmit(event){
     event.preventDefault();
     let cityInputElement=document.querySelector("#city-input");
-    search(cityInputElement.value);
+    searchCity(cityInputElement.value);
 }    
 
+function searchUserLocation(position){
+    let apiKey = "9aaa9a2a183bbe9e6cb58bc031908f93";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+}
+
+function getUserLocation(event){
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchUserLocation);
+}
+
 function displayFahrenheitTemperature(event){
-event.preventDefault();
+    event.preventDefault();
     let temperatureElement = document.querySelector("#current-temp");
     let fahrenheitTemperature = (celsiusTemperature * 9 / 5 + 32);
     let feelsLikeTempElement = document.querySelector("#feels-like");
@@ -114,8 +125,7 @@ function displayCelsiusTemperature(event){
     fahrenheitHighTemperatureElement.innerHTML = Math.round(highTemp);
     fahrenheitLowTemperatureElement.innerHTML = Math.round(lowTemp);
     }
-    
-
+        
 let celsiusTemperature = null;
 let feelsLikeTemp = null;
 let highTemp = null;
@@ -130,4 +140,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("London");
+let currentLocationBtn = document.querySelector("#user-location-btn");
+currentLocationBtn.addEventListener("click", getUserLocation);
+
+searchCity("London");
