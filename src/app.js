@@ -38,6 +38,8 @@ function showTemperature(response){
     let cityElement = document.querySelector("#current-city");
     let weatherDescriptionElement = document.querySelector("#weather-description");
     let feelsLikeElement = document.querySelector("#feels-like");
+    let fahrenheitTemperatureHighElement = document.querySelector("#high-temp");
+    let fahrenheitTemperatureLowElement = document.querySelector("#low-temp");   
     let sunriseElement = document.querySelector("#sunrise");
     let sunsetElement = document.querySelector("#sunset");
     let humidityElement = document.querySelector("#humidity");
@@ -45,12 +47,14 @@ function showTemperature(response){
     let weatherIconElement = document.querySelector("#icon");
     
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
-    temperatureLowElement.innerHTML = Math.round(response.data.main.temp_min);
     temperatureHighElement.innerHTML = Math.round(response.data.main.temp_max);
+    temperatureLowElement.innerHTML = Math.round(response.data.main.temp_min);
     dateElement.innerHTML = formatDate(response.data.dt*1000);
     cityElement.innerHTML = (response.data.name);
     weatherDescriptionElement.innerHTML = (response.data.weather[0].description);
     feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+    fahrenheitTemperatureHighElement.innerHTML = Math.round(response.data.main.temp_max);
+    fahrenheitTemperatureLowElement.innerHTML = Math.round(response.data.main.temp_min);
     sunriseElement.innerHTML = formatTime(response.data.sys.sunrise*1000);
     sunsetElement.innerHTML = formatTime(response.data.sys.sunset*1000);
     humidityElement.innerHTML = (response.data.main.humidity);
@@ -67,9 +71,6 @@ function showTemperature(response){
     feelsLikeTemp = response.data.main.feels_like;
     lowTemp = response.data.main.temp_min;
     highTemp = response.data.main.temp_max;
-
-
-    console.log(response.data)
 }
 
 function search(city){
@@ -86,32 +87,39 @@ function handleSubmit(event){
 
 function displayFahrenheitTemperature(event){
 event.preventDefault();
-let temperatureElement = document.querySelector("#current-temp");
-let feelsLikeTemp = document.querySelector("#feels-like");
-celsiusLink.classList.remove("active");
-fahrenheitLink.classList.add("active");
-let fahrenheitTemperature = (celsiusTemperature * 9 / 5 + 32);
-temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-feelsLikeTemp.innerHTML = Math.round((feelsLikeTemp * 9) / 5 + 32);
+    let temperatureElement = document.querySelector("#current-temp");
+    let fahrenheitTemperature = (celsiusTemperature * 9 / 5 + 32);
+    let feelsLikeTempElement = document.querySelector("#feels-like");
+    let fahrenheitHighTemperatureElement = document.querySelector("#high-temp");
+    let fahrenheitLowTemperatureElement = document.querySelector("#low-temp");
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+    feelsLikeTempElement.innerHTML = Math.round((feelsLikeTemp * 9) / 5 + 32);
+    fahrenheitHighTemperatureElement.innerHTML = Math.round((highTemp * 9) / 5 + 32);
+    fahrenheitLowTemperatureElement.innerHTML = Math.round((lowTemp * 9) / 5 + 32);
 }
 
 function displayCelsiusTemperature(event){
     event.preventDefault();
     let temperatureElement = document.querySelector("#current-temp")
-    let feelsLikeTemp = document.querySelector("#feels-like");
-
+    let feelsLikeTempElement = document.querySelector("#feels-like");
+    let fahrenheitHighTemperatureElement = document.querySelector("#high-temp");
+    let fahrenheitLowTemperatureElement = document.querySelector("#low-temp");
+    
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
-    feelsLikeTemp.innerHTML = Math.round(feelsLikeTemp);
-
+    feelsLikeTempElement.innerHTML = Math.round(feelsLikeTemp);
+    fahrenheitHighTemperatureElement.innerHTML = Math.round(highTemp);
+    fahrenheitLowTemperatureElement.innerHTML = Math.round(lowTemp);
     }
     
 
 let celsiusTemperature = null;
 let feelsLikeTemp = null;
-let lowTemp = null;
 let highTemp = null;
+let lowTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
