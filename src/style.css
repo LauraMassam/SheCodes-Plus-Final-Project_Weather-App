@@ -144,3 +144,8 @@ a{
     color: #919a9c;
 }
 
+footer{
+    font-size: 12px;
+    padding-top: 3px;    
+    text-align: center;
+}
