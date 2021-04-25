@@ -71,6 +71,7 @@ h3{
 }
 a{
     text-decoration: none;
+    color: #006EC5;
 }
 .current-temp .active{
     color: #6e6868; 
@@ -144,8 +145,22 @@ a{
     color: #919a9c;
 }
 
+.weather-forecast-info{
+    text-align: center;
+}
+
+.weather-forecast-temperatures{
+    color: #919a9c
+}
+.weather-forecast-date{
+    color: #919a9c
+}
 footer{
     font-size: 12px;
     padding-top: 3px;    
     text-align: center;
+}
+
+.weather-forecast-temperatures-max{
+    font-weight: 650;
 }

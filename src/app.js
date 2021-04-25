@@ -1,4 +1,3 @@
-
 function formatDate(timestamp){
     let date = new Date(timestamp);
     let days = [
@@ -30,9 +29,75 @@ function formatTime(timestamp){
     return `${hours}:${minutes}`;
 }
 
+function formatDay (timestamp){
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = [
+        "Sun",
+        "Mon",
+        "Tues",
+        "Wed",
+        "Thurs",
+        "Fri",
+        "Sat"
+    ];
+    return days[day];
+}
+   
+function displayForecast(response){
+let forecast = response.data.daily;
+console.log(response.data.daily);
+
+let forecastElement = document.querySelector("#forecast");
+let forecastHTML = `<div class = "row">`;
+forecast.forEach(function (forecastDay, index){
+    if(index < 6){
+    forecastHTML =
+    forecastHTML +
+
+    `
+    <div class = "col-2 weather-forecast-info">
+    <div class = "weather-forecast-date"> ${formatDay(forecastDay.dt)}</div>
+    <img
+    src = "https://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+    }@2x.png"
+    alt = ""
+    width= "60px"
+    />
+
+    <div class = "weather-forecast-temperatures">
+    <span class = "weather-forecast-temperatures-min">
+    ${
+        Math.round(forecastDay.temp.min)
+    }</span> °|
+
+    <span class = "weather-forecast-temperatures-max">
+    
+    ${
+        Math.round(forecastDay.temp.max)
+    }­</span>°
+    </div>
+    </div>
+    `;
+}
+forecastLowTemp = forecastDay.temp.min;
+forecastHighTemp = forecastDay.temp.max;
+
+});
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+    let apiKey = "9aaa9a2a183bbe9e6cb58bc031908f93";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+  }
+
 function showWeather(response){
-    let temperatureElement = document.querySelector("#current-temp");
     let temperatureLowElement = document.querySelector("#low-temp");
+    let temperatureElement = document.querySelector("#current-temp");
     let temperatureHighElement = document.querySelector("#high-temp");
     let dateElement = document.querySelector("#day");
     let cityElement = document.querySelector("#current-city");
@@ -45,7 +110,7 @@ function showWeather(response){
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
     let weatherIconElement = document.querySelector("#icon");
-    
+      
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     temperatureHighElement.innerHTML = Math.round(response.data.main.temp_max);
     temperatureLowElement.innerHTML = Math.round(response.data.main.temp_min);
@@ -71,6 +136,7 @@ function showWeather(response){
     feelsLikeTemp = response.data.main.feels_like;
     lowTemp = response.data.main.temp_min;
     highTemp = response.data.main.temp_max;
+    getForecast(response.data.coord);
 }
 
 function searchCity(city){
@@ -109,27 +175,53 @@ function displayFahrenheitTemperature(event){
     feelsLikeTempElement.innerHTML = Math.round((feelsLikeTemp * 9) / 5 + 32);
     fahrenheitHighTemperatureElement.innerHTML = Math.round((highTemp * 9) / 5 + 32);
     fahrenheitLowTemperatureElement.innerHTML = Math.round((lowTemp * 9) / 5 + 32);
+
+    
+    
+    // forecast high & low temp convert to fFahrenheit
+    let forecastFahrenheitLowTemperatureElement = document.querySelectorAll(".weather-forecast-temperatures-min");
+
+    forecastFahrenheitLowTemperatureElement.forEach(function (item){
+        item.innerHTML = Math.round((forecastLowTemp * 9) / 5 + 32);
+    });
+    let forecastFahrenheitHighTemperatureElement = document.querySelectorAll(".weather-forecast-temperatures-max");
+
+    forecastFahrenheitHighTemperatureElement.forEach(function (item){
+        item.innerHTML = Math.round((forecastHighTemp * 9) / 5 + 32);
+    });
 }
 
 function displayCelsiusTemperature(event){
     event.preventDefault();
-    let temperatureElement = document.querySelector("#current-temp")
+    let temperatureElement = document.querySelector("#current-temp");
     let feelsLikeTempElement = document.querySelector("#feels-like");
     let fahrenheitHighTemperatureElement = document.querySelector("#high-temp");
     let fahrenheitLowTemperatureElement = document.querySelector("#low-temp");
-    
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     feelsLikeTempElement.innerHTML = Math.round(feelsLikeTemp);
     fahrenheitHighTemperatureElement.innerHTML = Math.round(highTemp);
     fahrenheitLowTemperatureElement.innerHTML = Math.round(lowTemp);
-    }
-        
+
+    // forecast high & low temp convert to censius
+    let forecastFahrenheitLowTemperatureElement = document.querySelectorAll(".weather-forecast-temperatures-min");
+    forecastFahrenheitLowTemperatureElement.forEach(function (item){
+        item.innerHTML = Math.round(forecastLowTemp);
+    });
+    let forecastCelsiusHighTemperatureElement = document.querySelectorAll(".weather-forecast-temperatures-max");
+    forecastCelsiusHighTemperatureElement.forEach(function (item){
+        item.innerHTML = Math.round(forecastHighTemp)
+    });
+}
+    
+
 let celsiusTemperature = null;
 let feelsLikeTemp = null;
 let highTemp = null;
 let lowTemp = null;
+let forecastHighTemp = null;
+let forecastLowTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
