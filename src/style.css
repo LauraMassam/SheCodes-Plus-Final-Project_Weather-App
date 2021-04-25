@@ -155,12 +155,11 @@ a{
 .weather-forecast-date{
     color: #919a9c
 }
+.weather-forecast-temperatures-max{
+    font-weight: 650;
+}
 footer{
     font-size: 12px;
     padding-top: 3px;    
     text-align: center;
-}
-
-.weather-forecast-temperatures-max{
-    font-weight: 650;
 }
